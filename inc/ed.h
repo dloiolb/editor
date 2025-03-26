@@ -7,6 +7,10 @@
 
 // external data types and variables:
 
+// COMMANDS_H macros:
+
+#define MAX_FILENAME_LENGTH 255
+
 // COMMANDS_H data types:
 
 typedef struct Buffer {

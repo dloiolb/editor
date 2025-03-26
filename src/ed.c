@@ -13,26 +13,11 @@
 
 #define BUFFER_SIZE 2048
 #define MAX_TOKENS 20
-#define MAX_FILENAME_LENGTH 255
 
 //https://www.gnu.org/software/ed/manual/ed_manual.html
 
-//typedef struct Node Node;
-
-// struct Node {
-//   char * line;
-//   Node * next;
-//   Node * prev;
-// };
-
-// typedef struct Buffer {
-//   Node * head; // pointer to the first line (line 1)
-//   Node * tail; // pointer to the last line (line line_count)
-//   int line_count; // number of lines in buffer
-// } Buffer;
-
-Buffer buffer;
-
+// global variables:
+Buffer buffer; 
 int current_line; // current line in buffer
 char filename[MAX_FILENAME_LENGTH]; // current filename
 

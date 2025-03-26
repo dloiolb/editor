@@ -3,19 +3,6 @@
 #include "node.h"
 #include "ed.h"
 
-// struct {
-//   Node * head;
-//   Node * tail;
-//   int line_count;
-// } buffer;
-
-// void init_current_data(){
-//   current_line = 0;
-//   buffer.head = NULL;
-//   buffer.tail = NULL;
-//   buffer.line_count = 0;
-// }
-
 int create_node(Node * prev, Node * next, const char * line){
   Node * new_node = (Node *)malloc(sizeof(Node));
   new_node->line = strdup(line);

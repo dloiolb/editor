@@ -6,7 +6,9 @@
 // external data types and variables:
 
 typedef struct Buffer Buffer;
-extern Buffer buffer;
+extern Buffer buffer; 
+
+// NODE_H macros:
 
 // NODE_H data types:
 

@@ -3,16 +3,16 @@
 
 // include files:
 
-#include "ed.h"
-
 // external data types and variables:
 
 typedef struct Buffer Buffer;
 extern Buffer buffer; 
 
-// NODE_H data types:
+// COMMANDS_H macros:
 
-// NODE_H functions:
+// COMMANDS_H data types:
+
+// COMMANDS_H functions:
 
 int command_E();
 
