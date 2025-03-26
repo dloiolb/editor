@@ -3,10 +3,14 @@
 
 // include files:
 
+#include "macros.h"
+
 // external data types and variables:
 
 typedef struct Buffer Buffer;
 extern Buffer buffer; 
+extern int current_line;
+extern char filename[MAX_FILENAME_LENGTH]; 
 
 // NODE_H macros:
 

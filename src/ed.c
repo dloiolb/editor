@@ -9,7 +9,7 @@
 #include <fcntl.h>
 //#include <sys/wait.h>
 #include "ed.h"
-#include "node.h"
+// #include "node.h"
 
 #define BUFFER_SIZE 2048
 #define MAX_TOKENS 20
