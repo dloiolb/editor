@@ -1,5 +1,5 @@
 #include <readline/history.h>
-#include "../inc/commands.h"
+#include "commands.h"
 
 int command_E(){
     char * line = readline("");

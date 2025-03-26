@@ -1,9 +1,7 @@
 #ifndef COMMANDS_H
 #define COMMANDS_H
 
-#include "../inc/node.h"
-
-int command_E();
+#include "node.h"
 
 typedef struct Buffer {
     Node * head; // pointer to the first line (line 1)

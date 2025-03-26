@@ -8,10 +8,8 @@ struct Node {
     Node * next;
     Node * prev;
 };
-  
 
 typedef struct Buffer Buffer;
-
 extern Buffer buffer;
 
 typedef struct Node Node;

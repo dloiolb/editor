@@ -1,8 +1,9 @@
 CC = gcc
-CFLAGS = -Wall -g 
+CFLAGS = -Wall -g -Iinc
 LDFLAGS = -lreadline
 SRC_DIR = src
 OBJ_DIR = obj
+# INC_DIR = inc
 SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
 OBJ_FILES = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC_FILES)) 
 

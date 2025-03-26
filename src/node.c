@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../inc/node.h"
-#include "../inc/ed.h"
+#include "node.h"
+#include "ed.h"
 
 // struct {
 //   Node * head;
