@@ -19,6 +19,6 @@ extern char filename[MAX_FILENAME_LENGTH];
 
 // COMMANDS_H functions:
 
-int command_E();
+int command_E(char * name);
 
 #endif

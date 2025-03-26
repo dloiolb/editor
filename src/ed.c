@@ -88,7 +88,10 @@ int main(int argc, char *argv[]){
     /// 0000. ///
     if(strcmp(arr[0],"E")==0){
       if(count > 1 &&strcmp(arr[1],"abs.txt")==0){
-	file_numchars();	
+	      file_numchars();	
+      }
+      else if(count > 1){
+        command_E(arr[1]);
       }
       FILE * file = fopen("hi.txt","a+");
       fprintf(file,"ZZZZZ");
@@ -97,6 +100,10 @@ int main(int argc, char *argv[]){
 
     else if(strcmp(arr[0],"q")==0){
       exit(0);
+    }
+
+    else if(strcmp(arr[0],"name")==0){
+      printf("%s\n",filename);
     }
 
     else{
