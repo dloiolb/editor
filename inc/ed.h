@@ -5,9 +5,11 @@
 
 #include "macros.h"
 #include "node.h"
-#include "commands.h"
+// #include "commands.h"
 
 // external data types and variables:
+
+// typedef struct Node Node;
 
 // COMMANDS_H macros:
 
@@ -15,9 +17,10 @@
 
 typedef struct Buffer {
     Node * head; // pointer to the first line (line 1)
-    Node * tail; // pointer to the last line (line line_count)
-    int line_count; // number of lines in buffer
+    // Node * tail; // pointer to the last line (line line_count)
+    int line_count; // number of lines in ed_buffer
 } Buffer;  
+
 
 // COMMANDS_H functions:
 

@@ -9,7 +9,8 @@
 #include <fcntl.h>
 //#include <sys/wait.h>
 #include "ed.h"
-// #include "node.h"
+#include "node.h"
+#include "commands.h"
 
 #define BUFFER_SIZE 2048
 #define MAX_TOKENS 20
@@ -17,15 +18,15 @@
 //https://www.gnu.org/software/ed/manual/ed_manual.html
 
 // global variables:
-Buffer buffer; 
-int current_line; // current line in buffer
-char filename[MAX_FILENAME_LENGTH]; // current filename
+Buffer ed_buffer = {NULL, 0};
+int ed_currentline; // current line in ed_buffer
+char ed_filename[MAX_FILENAME_LENGTH]; // current ed_filename
 
 void init_current_data(){
-  current_line = 0;
-  buffer.head = NULL;
-  buffer.tail = NULL;
-  buffer.line_count = 0;
+  ed_currentline = 0;
+  ed_buffer.head = NULL;
+  // ed_buffer.tail = NULL;
+  ed_buffer.line_count = 0;
 }
 
 void collect_tokens(char * line, char * arr[MAX_TOKENS], int * count);
@@ -103,7 +104,7 @@ int main(int argc, char *argv[]){
     }
 
     else if(strcmp(arr[0],"name")==0){
-      printf("%s\n",filename);
+      printf("%s\n",ed_filename);
     }
 
     else{
