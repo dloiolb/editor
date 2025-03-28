@@ -17,15 +17,11 @@
 
 // global variables:
 Buffer ed_buffer;
-int ed_currentline; // current line in ed_buffer
 char ed_filename[MAX_FILENAME_LENGTH]; // current ed_filename
 
 void init_current_data(){
-  ed_currentline = 0;
   ed_buffer.head = NULL;
-  // ed_buffer.tail = NULL;
-  ed_buffer.line_count = 0;
-  ed_buffer.char_count = 0;
+  ed_buffer.current = NULL;
 }
 
 void file_numchars(){

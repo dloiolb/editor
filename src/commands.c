@@ -23,15 +23,17 @@ static const char *error_messages[ERR_COUNT] = {
 };
 
 int command_a(){
-    FILE * file = fopen(ed_filename, "");
+    char * line = readline("");
+    while(strcmp(line,".")!=0){
+        // createline
+        char * line = readline("");
+    }
 }
 
 int command_c(){
-    FILE * file = fopen(ed_filename, "");
 }
 
 int command_d(){
-    FILE * file = fopen(ed_filename, "");
 }
 
 int command_e(){
@@ -47,20 +49,13 @@ int command_E(char * name){
     }
 
     // clear previous buffer
-    Node * temp;
-    Node * temp2;
-    temp = ed_buffer.head;
-    while (temp != NULL){
-        temp2 = temp->next;
-        free_node(temp);
-        temp = temp2;
-    }
+    free_all_nodes();
 
     // load ed_buffer with each line of ed_filename
+    Node * temp;
+    Node * temp2;
     FILE * file = fopen(ed_filename,"r");
-    ed_buffer.line_count = 0;
     char buf[MAX_LINE_LENGTH];
-
     ed_buffer.head = NULL;
     if (fgets(buf, sizeof(buf), file)) {
         temp = create_node(NULL,NULL,buf);
@@ -69,18 +64,11 @@ int command_E(char * name){
     while (fgets(buf, sizeof(buf), file)){
         temp2 = create_node(temp,NULL, buf);
         temp = temp2;
-    }
-    ed_currentline = ed_buffer.line_count;
-    fclose(file);
-
-    file = fopen(ed_filename, "r");
-    int count = 0;
-    while (fgetc(file) != EOF) { 
-        count++;
+        ed_buffer.current = temp;
     }
     fclose(file);
-    ed_buffer.char_count = count;
-    printf("%d\n", ed_buffer.char_count);
+    int chars = num_chars();
+    printf("%d\n", chars);
 
     return 0;
 }
@@ -98,24 +86,13 @@ int command_H(){
 }
 
 int command_period(){
-    Node * temp = ed_buffer.head;
-    printf("%d\n", ed_currentline);
-    if(ed_currentline > ed_buffer.line_count || ed_buffer.line_count == 0){
-        printf("?\n");
-        return 1;
-    }
 
-    // remake as Node * line_n(int n) in node.c ?
-    for (int i=1; i<ed_currentline; i++){
-        if (temp->next == NULL) break;
-        temp = temp->next;
-    }
-    printf("%s", temp->line);
+    printf("%s", ed_buffer.current->line);
     return 0;
 }
 
 int command_equal(){
-    printf("%d\n", ed_buffer.line_count);
+    printf("%d\n", num_lines());
 }
 
 int command_w(){
