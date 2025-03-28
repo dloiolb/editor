@@ -105,7 +105,7 @@ int command_period(){
         return 1;
     }
 
-    // remake as Node * line_n(int n) in node.c
+    // remake as Node * line_n(int n) in node.c ?
     for (int i=1; i<ed_currentline; i++){
         if (temp->next == NULL) break;
         temp = temp->next;

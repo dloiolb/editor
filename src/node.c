@@ -29,20 +29,21 @@ int free_node(Node * node){
   return 0;
 }
 
-int free_n_nodes(int first_line, int last_line){
-  int n = (last_line - first_line) + 1;
+// int free_n_nodes(int first_line, int last_line){
+//   int n = (last_line - first_line) + 1;
   
-  for(int i=1; i <= n; i++) {
+//   for(int i=1; i <= n; i++) {
     
-  }
-  return 0;
-}
+//   }
+//   return 0;
+// }
 
-int print_nth_node(int n, Node * ed_buffer_head){
-  Node * node = ed_buffer_head;
-  for(int i=1; i<=n; i++){
-    node = node->next;
-  }
-  printf("%s\n",node->line);
-  return 0;
-}
+// int print_nth_node(){
+//   Node * node = ed_buffer.head;
+//   for(int i=1; i<ed_currentline; i++){
+//     node = node->next;
+//   }
+//   printf("%s\n",node->line);
+  
+//   return 0;
+// }

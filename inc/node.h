@@ -28,7 +28,7 @@ struct Node {
 
 Node * create_node(Node * prev, Node * next, const char * line);
 int free_node(Node * node);
-int free_n_nodes(int first_line, int last_line);
-int print_nth_node(int n, Node * ed_buffer_head);
+// int free_n_nodes(int first_line, int last_line);
+// int print_nth_node(int n, Node * ed_buffer_head);
 
 #endif
