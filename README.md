@@ -1,8 +1,8 @@
-Reference:
+### Reference:
 [//https://www.gnu.org/software/ed/manual/ed_manual.html](//https://www.gnu.org/software/ed/manual/ed_manual.html
 )
 
-Implemented Commands:
+### Implemented Commands:
 ```
 (.)a
 E <file>
