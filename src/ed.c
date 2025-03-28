@@ -24,31 +24,22 @@ void init_current_data(){
   ed_buffer.current = NULL;
 }
 
-void file_numchars(){
-  FILE * file = fopen("abs.txt","r");
-  int count = 0;
-  char ch;
-  while ((ch = fgetc(file)) != EOF ){
-    count++;
-  }
-  printf("%d\n", count);
-  fclose(file);
-}
-
 int read_command(char * arr[MAX_TOKENS], int count){
   // char * arr = *arr_ptr;
   // int count = *count_ptr;
   /// 0000. ///
   if(strcmp(arr[0],"E")==0){
-    // if(count > 1 &&strcmp(arr[1],"abs.txt")==0){
-    //   file_numchars();	
-    // }
     if(count > 1){
       command_E(arr[1]);
     }
-    // FILE * file = fopen("hi.txt","a+");
-    // fprintf(file,"ZZZZZ");
-    // fclose(file);
+  }
+
+  else if(strcmp(arr[0],"a")==0){
+    command_a();
+  }
+
+  else if(strcmp(arr[0],"w")==0){
+    command_w();
   }
 
   else if(strcmp(arr[0],"q")==0){
