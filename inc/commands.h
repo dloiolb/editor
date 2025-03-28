@@ -18,7 +18,7 @@ extern char ed_filename[MAX_FILENAME_LENGTH];
 
 // COMMANDS_H functions:
 
-int command_a();
+int command_a(int n);
 int command_h();
 int command_E(char * name);
 int command_period();

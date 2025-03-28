@@ -28,7 +28,8 @@ static const char *error_messages[ERR_COUNT] = {
     "hm3"
 };
 
-int command_a(){
+int command_a(int n){
+    ed_buffer.current = nth_node(n);
     Node * temp = ed_buffer.current;
     int cnt = 0;
     while(1){
