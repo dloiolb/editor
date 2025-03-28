@@ -46,13 +46,21 @@ int command_E(char * name){
         strcpy(ed_filename,name);
     }
 
+    // clear previous buffer
+    Node * temp;
+    Node * temp2;
+    temp = ed_buffer.head;
+    while (temp != NULL){
+        temp2 = temp->next;
+        free_node(temp);
+        temp = temp2;
+    }
+
     // load ed_buffer with each line of ed_filename
     FILE * file = fopen(ed_filename,"r");
     ed_buffer.line_count = 0;
     char buf[MAX_LINE_LENGTH];
-    
-    Node * temp;
-    Node * temp2;
+
     ed_buffer.head = NULL;
     if (fgets(buf, sizeof(buf), file)) {
         temp = create_node(NULL,NULL,buf);
