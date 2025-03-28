@@ -18,8 +18,6 @@ extern char ed_filename[MAX_FILENAME_LENGTH];
 // NODE_H data types:
 
 typedef struct Node Node;
-
-typedef struct Node Node;
 struct Node {
     char * line;
     Node * next;

@@ -5,10 +5,15 @@
 
 Node * create_node(Node * prev, Node * next, const char * line){
   Node * new_node = (Node *)malloc(sizeof(Node));
-  if(ed_buffer.head == NULL) ed_buffer.head = new_node;
+  // if(ed_buffer.head == NULL) ed_buffer.head = new_node;
   new_node->line = strdup(line);
   new_node->next = next;
   new_node->prev = prev;
+
+  // possibility to lose node
+  if(new_node->prev) new_node->prev->next = new_node;
+  if(new_node->next) new_node->next->prev = new_node;
+
   ed_buffer.line_count++;
   return new_node;
 }

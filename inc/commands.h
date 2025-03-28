@@ -4,8 +4,6 @@
 // include files:
 
 #include "macros.h"
-// #include "node.h"
-// #include "ed.h"
 
 // external data types and variables:
 
@@ -20,6 +18,10 @@ extern char ed_filename[MAX_FILENAME_LENGTH];
 
 // COMMANDS_H functions:
 
+int command_h();
 int command_E(char * name);
+int command_period();
+int command_equal();
+int command_w();
 
 #endif

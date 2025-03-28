@@ -11,14 +11,12 @@
 #include "ed.h"
 #include "node.h"
 #include "commands.h"
-
-#define BUFFER_SIZE 2048
-#define MAX_TOKENS 20
+#include "tokenize.h"
 
 //https://www.gnu.org/software/ed/manual/ed_manual.html
 
 // global variables:
-Buffer ed_buffer = {NULL, 0};
+Buffer ed_buffer;
 int ed_currentline; // current line in ed_buffer
 char ed_filename[MAX_FILENAME_LENGTH]; // current ed_filename
 
@@ -27,10 +25,8 @@ void init_current_data(){
   ed_buffer.head = NULL;
   // ed_buffer.tail = NULL;
   ed_buffer.line_count = 0;
+  ed_buffer.char_count = 0;
 }
-
-void collect_tokens(char * line, char * arr[MAX_TOKENS], int * count);
-void concatTokens(char * concatstring, char * arr[], int count);
 
 void file_numchars(){
   FILE * file = fopen("abs.txt","r");
@@ -43,28 +39,42 @@ void file_numchars(){
   fclose(file);
 }
 
-void collect_tokens(char * line, char * arr[MAX_TOKENS], int * count){
-    char * token = strtok(line, " ");
-    int temp_count=0;
-    while (token != NULL){
-      arr[temp_count] = malloc(strlen(token));
-      strcpy(arr[temp_count++],token);
-      token = strtok(NULL, " ");
+int read_command(char * arr[MAX_TOKENS], int count){
+  // char * arr = *arr_ptr;
+  // int count = *count_ptr;
+  /// 0000. ///
+  if(strcmp(arr[0],"E")==0){
+    // if(count > 1 &&strcmp(arr[1],"abs.txt")==0){
+    //   file_numchars();	
+    // }
+    if(count > 1){
+      command_E(arr[1]);
     }
-    
-    arr[temp_count] = NULL;
-    *count = temp_count;
-}
+    // FILE * file = fopen("hi.txt","a+");
+    // fprintf(file,"ZZZZZ");
+    // fclose(file);
+  }
 
-void concatTokens(char * concatstring, char * arr[], int count){
-  concatstring[0] = '\0';
-  for(int i=0;i<count;i++){
-    if(arr[i] != NULL){
-      strncat(concatstring, arr[i], BUFFER_SIZE - strlen(concatstring) -1);
-      if(i < count-1 && arr[i+1] != NULL){
-	strncat(concatstring, " ", BUFFER_SIZE - strlen(concatstring) -1);
-      }
-    }
+  else if(strcmp(arr[0],"q")==0){
+    exit(0);
+  }
+
+  else if(strcmp(arr[0],"h")==0){
+    command_h();
+  }
+  else if(strcmp(arr[0],".")==0){
+    command_period();
+  }
+  else if(strcmp(arr[0],"=")==0){
+    command_equal();
+  }
+
+  else if(strcmp(arr[0],"name")==0){
+    printf("%s\n",ed_filename);
+  }
+
+  else{
+    printf("?\n");
   }
 }
 
@@ -82,34 +92,11 @@ int main(int argc, char *argv[]){
     int count = 0;
     collect_tokens(line, arr, &count);
     
-    /*for(int i =0; i<=count;i++){
-      printf("%d: %s\n",i,arr[i]);
-    }*/
+    // for(int i =0; i<=count;i++){
+    //   printf("%d: %s\n",i,arr[i]);
+    // }
     
-    /// 0000. ///
-    if(strcmp(arr[0],"E")==0){
-      if(count > 1 &&strcmp(arr[1],"abs.txt")==0){
-	      file_numchars();	
-      }
-      else if(count > 1){
-        command_E(arr[1]);
-      }
-      FILE * file = fopen("hi.txt","a+");
-      fprintf(file,"ZZZZZ");
-      fclose(file);
-    }
-
-    else if(strcmp(arr[0],"q")==0){
-      exit(0);
-    }
-
-    else if(strcmp(arr[0],"name")==0){
-      printf("%s\n",ed_filename);
-    }
-
-    else{
-      printf("?\n");
-    }
+    read_command(arr, count);
 
     for (int i=0;i<count;i++){
       free(arr[i]);
