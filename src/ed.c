@@ -120,18 +120,13 @@ int read_command(char * line, char * arr[MAX_TOKENS], int count){
 
 int main(int argc, char *argv[]){
 
-  for (int i = 1; i < argc; i++) {
-    if (strcmp(argv[i], "-debug") == 0) {
-      DEBUG_MODE = true;
-      break;
-    }
-  }
-  
   init_current_data();
+  if (argc > 1){
+    command_E(argv[1]);
+  }
   
   while (1){
     char * line = readline("");
-    if (DEBUG_MODE) printf("\033[A\033[K");
     if(strcmp(line,"")==0){
       printf("?\n");
       continue;
