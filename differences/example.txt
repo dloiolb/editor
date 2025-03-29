@@ -1,0 +1,25 @@
+Input script:
+E test_files/hi.txt
+.
+=
+2,3
+q
+
+
+ed output:
+216
+kk
+22
+ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+
+./ed output:
+E test_files/hi.txt
+[A[K216
+.
+[A[Kkk
+=
+[A[K22
+2,3
+[A[KZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+q
+[A[K

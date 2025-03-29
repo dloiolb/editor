@@ -5,6 +5,7 @@
 #include <readline/history.h>
 #include <dirent.h>
 #include <unistd.h>
+#include <stdbool.h>
 //#include <signal.h>
 #include <fcntl.h>
 //#include <sys/wait.h>
@@ -12,6 +13,8 @@
 #include "node.h"
 #include "commands.h"
 #include "tokenize.h"
+
+bool DEBUG_MODE = false;
 
 // global variables:
 Buffer ed_buffer;
@@ -116,10 +119,19 @@ int read_command(char * line, char * arr[MAX_TOKENS], int count){
 }
 
 int main(int argc, char *argv[]){
+
+  for (int i = 1; i < argc; i++) {
+    if (strcmp(argv[i], "-debug") == 0) {
+      DEBUG_MODE = true;
+      break;
+    }
+  }
+  
   init_current_data();
   
   while (1){
     char * line = readline("");
+    if (DEBUG_MODE) printf("\033[A\033[K");
     if(strcmp(line,"")==0){
       printf("?\n");
       continue;

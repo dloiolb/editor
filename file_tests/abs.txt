@@ -1,0 +1,10 @@
+hungy
+
+
+
+\.\.\.
+w
+=
+write 1
+write 2
+

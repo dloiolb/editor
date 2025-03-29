@@ -1,0 +1,6 @@
+E test_files/hi.txt
+.
+a
+hello
+.
+q
