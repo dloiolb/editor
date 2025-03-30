@@ -98,6 +98,17 @@ void command_w(){
     fclose(file);
 }
 
+void command_f(char * name){
+    // set ed_filename
+    if(strlen(name)<MAX_FILENAME_LENGTH){ 
+        strcpy(ed_filename,name);
+    }
+    else{
+        error_msg();
+        return;
+    }
+}
+
 void command_a(int n){
     if (n>=0) ed_buffer_current = nth_node(n);
     Node * temp = ed_buffer_current;
@@ -126,17 +137,18 @@ void command_a(int n){
 
 }
 
-void command_c(){
+void command_c(int n, int m){
+    Node * node = free_nodes_in_range(n,m);
+    ed_buffer_current = node;
+    command_a(n-1);
 }
 
-void command_d(){
+void command_d(int n, int m){
+    Node * node = free_nodes_in_range(n,m);
+    ed_buffer_current = node;
 }
 
 void command_e(){
-    // FILE * file = fopen(ed_filename, "");
-}
-
-void command_f(){
     // FILE * file = fopen(ed_filename, "");
 }
 

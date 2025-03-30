@@ -99,7 +99,16 @@ int read_command(char * line, char * arr[MAX_TOKENS], int count){
   }
 
   else if(strcmp(line,"w")==0){
+    if(count > 1){
+      command_f(arr[1]);
+    }
     command_w();
+  }
+
+  else if(strcmp(line,"f")==0){
+    if(count > 1){
+      command_f(arr[1]);
+    }
   }
 
   // commands that take numbers:
@@ -107,6 +116,14 @@ int read_command(char * line, char * arr[MAX_TOKENS], int count){
   else if(line[index] == 'a'){
     if (sec_num >= 0) command_a(sec_num);
     else command_a(first_num);
+  }
+
+  else if(line[index] == 'c'){
+    command_c(first_num,sec_num);
+  }
+
+  else if(line[index] == 'd'){
+    command_d(first_num,sec_num);
   }
 
   // invalid commands:

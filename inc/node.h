@@ -20,7 +20,8 @@ struct Node {
 // NODE_H functions:
 
 Node * create_node(Node * prev, Node * next, const char * line);
-int free_node(Node * node);
+Node * free_node(Node * node);
+Node * free_nodes_in_range(int n,int m);
 int free_all_nodes();
 Node * nth_node(int n);
 int num_lines();

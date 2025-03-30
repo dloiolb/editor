@@ -19,7 +19,7 @@ Node * create_node(Node * prev, Node * next, const char * line){
   return new_node;
 }
 
-int free_node(Node * node){
+Node * free_node(Node * node){
   if(node->prev) node->prev->next = node->next;
   if(node->next) node->next->prev = node->prev;
   if(ed_buffer_head == node) ed_buffer_head = node->next;
@@ -28,6 +28,23 @@ int free_node(Node * node){
   free(node->line);
   free(node);
   return 0;
+}
+
+Node * free_nodes_in_range(int n,int m){
+  Node * temp;
+  Node * temp2;
+  temp = nth_node(n);
+  Node * curr = temp->prev;
+  int range = (m-n)+2;
+  for (int i=1; i<range; i++){
+    if (temp->next == NULL) break;
+    temp2 = temp->next;
+    free_node(temp);
+    temp = temp2;
+  }
+  curr->next = temp;
+  temp->prev = curr;
+  return temp;
 }
 
 int free_all_nodes(){

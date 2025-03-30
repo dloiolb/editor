@@ -14,6 +14,9 @@ h
 (1,$)w <file>
 ($)=
 .
+(.,.)c
+(.,.)d
+f <file>
 ```
 
 ## How to use:
