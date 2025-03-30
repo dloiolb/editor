@@ -92,6 +92,9 @@ void command_w(){
         temp = temp->next;
     }
 
+    int chars = num_chars();
+    printf("%d\n", chars);
+
     fclose(file);
 }
 

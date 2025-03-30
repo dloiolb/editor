@@ -15,3 +15,24 @@ h
 ($)=
 .
 ```
+
+## How to use:
+Simply run make to build the program and then ./ed in the terminal can be used the same as ed.
+Example:
+
+```
+$ make
+$ ./ed testing/file_tests/hi.txt
+337
+=
+35
+4a
+Hello how are you?
+
+abcdefg
+.
+w
+365
+q
+```
+

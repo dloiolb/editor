@@ -54,15 +54,16 @@ int read_command(char * line, char * arr[MAX_TOKENS], int count){
       if(line[index] != '\0' && line[index] >= '0' && line[index] <= '9'){
         sec_num = get_num(line, &index);
       }
+      else if( line[index] == '\0'){}
       else{
         error_msg();
         return 1;
       }
     }
-    else{
-      error_msg();
-      return 1;
-    }
+    // else{
+    //   error_msg();
+    //   return 1;
+    // }
   }
 
   if(line[index]=='\0'){
