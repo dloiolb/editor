@@ -22,6 +22,8 @@ Example:
 
 ```
 $ make
+```
+```
 $ ./ed testing/file_tests/hi.txt
 337
 =
