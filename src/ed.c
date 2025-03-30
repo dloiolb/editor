@@ -111,6 +111,13 @@ int read_command(char * line, char * arr[MAX_TOKENS], int count){
     }
   }
 
+  else if(strcmp(line,"wq")==0){
+    if(count > 1){
+      command_f(arr[1]);
+    }
+    command_wq();
+  }
+
   // commands that take numbers:
 
   else if(line[index] == 'a'){

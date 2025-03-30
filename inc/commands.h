@@ -19,6 +19,7 @@ void command_period();
 void command_equal();
 void command_w();
 void command_f(char * name);
+void command_wq();
 
 void command_a(int n);
 void command_c(int n, int m);

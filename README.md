@@ -17,6 +17,7 @@ h
 (.,.)c
 (.,.)d
 f <file>
+(1,$)wq <file>
 ```
 
 ## How to use:

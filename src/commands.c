@@ -109,6 +109,11 @@ void command_f(char * name){
     }
 }
 
+void command_wq(){
+    command_w();
+    command_q();
+}
+
 void command_a(int n){
     if (n>=0) ed_buffer_current = nth_node(n);
     Node * temp = ed_buffer_current;
