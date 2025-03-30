@@ -18,11 +18,10 @@ h
 
 ## How to use:
 Simply run make to build the program and then ./ed in the terminal can be used the same as ed.
-Example:
-
 ```
 $ make
 ```
+Example:
 ```
 $ ./ed testing/file_tests/hi.txt
 337
