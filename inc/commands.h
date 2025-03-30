@@ -18,11 +18,12 @@ extern char ed_filename[MAX_FILENAME_LENGTH];
 
 // COMMANDS_H functions:
 
-int command_a(int n);
-int command_h();
-int command_E(char * name);
-int command_period();
-int command_equal();
-int command_w();
+void command_E(char * name);
+void command_q();
+void command_h();
+void command_period();
+void command_equal();
+void command_w();
+void command_a(int n);
 
 #endif
