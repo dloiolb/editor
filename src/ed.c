@@ -65,8 +65,6 @@ int read_command(char * line, char * arr[MAX_TOKENS], int count){
     }
   }
 
-  printf("%d, %d\n", first_num, sec_num);
-
   if(line[index]=='\0'){
     if (sec_num >= 0){
       ed_buffer.current = nth_node(sec_num);

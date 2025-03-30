@@ -1,0 +1,25 @@
+Input script:
+E file_tests/hi.txt
+.
+a
+hello
+.
+q
+
+
+ed output:
+337
+123456789012345678901234567890
+?
+?
+?
+
+./ed output:
+E file_tests/hi.txt
+337
+.
+123456789012345678901234567890
+a
+hello
+.
+q

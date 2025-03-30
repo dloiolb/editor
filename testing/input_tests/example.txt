@@ -1,0 +1,5 @@
+E file_tests/hi.txt
+.
+=
+2,3
+q
