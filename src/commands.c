@@ -51,15 +51,15 @@ void command_E(char * name){
     Node * temp2;
     FILE * file = fopen(ed_filename,"r");
     char buf[MAX_LINE_LENGTH];
-    ed_buffer.head = NULL;
+    ed_buffer_head = NULL;
     if (fgets(buf, sizeof(buf), file)) {
         temp = create_node(NULL,NULL,buf);
-        ed_buffer.head = temp;
+        ed_buffer_head = temp;
     }
     while (fgets(buf, sizeof(buf), file)){
         temp2 = create_node(temp,NULL, buf);
         temp = temp2;
-        ed_buffer.current = temp;
+        ed_buffer_current = temp;
     }
     fclose(file);
     int chars = num_chars();
@@ -75,7 +75,7 @@ void command_h(){
 }
 
 void command_period(){
-    printf("%s", ed_buffer.current->line);
+    printf("%s", ed_buffer_current->line);
 }
 
 void command_equal(){
@@ -86,7 +86,7 @@ void command_w(){
 
     FILE * file = fopen(ed_filename,"w");
     
-    Node * temp = ed_buffer.head;
+    Node * temp = ed_buffer_head;
     while (temp != NULL){
         fprintf(file, temp->line);
         temp = temp->next;
@@ -99,8 +99,8 @@ void command_w(){
 }
 
 void command_a(int n){
-    if (n>=0) ed_buffer.current = nth_node(n);
-    Node * temp = ed_buffer.current;
+    if (n>=0) ed_buffer_current = nth_node(n);
+    Node * temp = ed_buffer_current;
     while(1){
         char * line = readline("");
         if(strcmp(line,".")==0){
@@ -115,12 +115,12 @@ void command_a(int n){
 
         if (temp == NULL){
             temp = create_node(NULL,NULL,line);
-            ed_buffer.head = temp;
+            ed_buffer_head = temp;
         }
         else{
             temp = create_node(temp, temp->next,line);
         }
-        ed_buffer.current = temp;
+        ed_buffer_current = temp;
         free(line);
     }
 

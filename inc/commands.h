@@ -5,13 +5,6 @@
 
 #include "macros.h"
 
-// external data types and variables:
-
-typedef struct Buffer Buffer;
-extern Buffer ed_buffer;
-extern int ed_currentline;
-extern char ed_filename[MAX_FILENAME_LENGTH]; 
-
 // COMMANDS_H macros:
 
 // COMMANDS_H data types:
@@ -26,5 +19,11 @@ void command_period();
 void command_equal();
 void command_w();
 void command_a(int n);
+
+// external data types and variables:
+
+extern Node * ed_buffer_head;
+extern Node * ed_buffer_current;
+extern char ed_filename[MAX_FILENAME_LENGTH]; 
 
 #endif

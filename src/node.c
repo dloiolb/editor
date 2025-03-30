@@ -6,7 +6,7 @@
 
 Node * create_node(Node * prev, Node * next, const char * line){
   Node * new_node = (Node *)malloc(sizeof(Node));
-  // if(ed_buffer.head == NULL) ed_buffer.head = new_node;
+  // if(ed_buffer_head == NULL) ed_buffer_head = new_node;
   new_node->line = strdup(line);
   new_node->next = next;
   new_node->prev = prev;
@@ -22,7 +22,7 @@ Node * create_node(Node * prev, Node * next, const char * line){
 int free_node(Node * node){
   if(node->prev) node->prev->next = node->next;
   if(node->next) node->next->prev = node->prev;
-  if(ed_buffer.head == node) ed_buffer.head = node->next;
+  if(ed_buffer_head == node) ed_buffer_head = node->next;
   // ed_buffer.line_count--;
 
   free(node->line);
@@ -33,7 +33,7 @@ int free_node(Node * node){
 int free_all_nodes(){
   Node * temp;
   Node * temp2;
-  temp = ed_buffer.head;
+  temp = ed_buffer_head;
   while (temp != NULL){
       temp2 = temp->next;
       free_node(temp);
@@ -43,7 +43,7 @@ int free_all_nodes(){
 }
 
 Node * nth_node(int n){
-  Node * temp = ed_buffer.head;
+  Node * temp = ed_buffer_head;
   for (int i=1; i<n; i++){
     if (temp->next == NULL) break;
     temp = temp->next;
@@ -52,7 +52,7 @@ Node * nth_node(int n){
 }
 
 int num_lines(){
-  Node * temp = ed_buffer.head;
+  Node * temp = ed_buffer_head;
   int count = 0;
   while (temp != NULL){
     count++;
@@ -62,7 +62,7 @@ int num_lines(){
 }
 
 int num_chars(){
-  Node * temp = ed_buffer.head;
+  Node * temp = ed_buffer_head;
   int count = 0;
   while (temp != NULL){
     count += strlen(temp->line);

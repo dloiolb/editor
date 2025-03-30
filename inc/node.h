@@ -6,13 +6,6 @@
 #include "macros.h"
 // #include "ed.h"
 
-// external data types and variables:
-
-typedef struct Buffer Buffer;
-extern Buffer ed_buffer; 
-extern int ed_currentline;
-extern char ed_filename[MAX_FILENAME_LENGTH]; 
-
 // NODE_H macros:
 
 // NODE_H data types:
@@ -32,5 +25,11 @@ int free_all_nodes();
 Node * nth_node(int n);
 int num_lines();
 int num_chars();
+
+// external data types and variables:
+
+extern Node * ed_buffer_head;
+extern Node * ed_buffer_current;
+extern char ed_filename[MAX_FILENAME_LENGTH]; 
 
 #endif

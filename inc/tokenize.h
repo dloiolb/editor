@@ -5,8 +5,6 @@
 
 #include "macros.h"
 
-// external data types and variables:
-
 // TOKENIZE_H macros:
 
 #define MAX_TOKENS 20
@@ -18,5 +16,7 @@
 
 void collect_tokens(char * line, char * arr[MAX_TOKENS], int * count);
 void concatTokens(char * concatstring, char * arr[], int count);
+
+// external data types and variables:
 
 #endif

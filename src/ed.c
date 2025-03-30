@@ -17,12 +17,13 @@
 bool DEBUG_MODE = false;
 
 // global variables:
-Buffer ed_buffer;
+Node * ed_buffer_head;
+Node * ed_buffer_current;
 char ed_filename[MAX_FILENAME_LENGTH]; // current ed_filename
 
 void init_current_data(){
-  ed_buffer.head = NULL;
-  ed_buffer.current = NULL;
+  ed_buffer_head = NULL;
+  ed_buffer_current = NULL;
 }
 
 int get_num(char * line, int * i){
@@ -60,19 +61,15 @@ int read_command(char * line, char * arr[MAX_TOKENS], int count){
         return 1;
       }
     }
-    // else{
-    //   error_msg();
-    //   return 1;
-    // }
   }
 
   if(line[index]=='\0'){
     if (sec_num >= 0){
-      ed_buffer.current = nth_node(sec_num);
+      ed_buffer_current = nth_node(sec_num);
       command_period();
     }
     else if (first_num >= 0){
-      ed_buffer.current = nth_node(first_num);
+      ed_buffer_current = nth_node(first_num);
       command_period();
     }
   }
@@ -137,20 +134,13 @@ int main(int argc, char *argv[]){
     char * arr[MAX_TOKENS];
     int count = 0;
     collect_tokens(line, arr, &count);
-    
-    // for(int i =0; i<=count;i++){
-    //   printf("%d: %s\n",i,arr[i]);
-    // }
-    
     read_command(line, arr, count);
 
     for (int i=0;i<count;i++){
       free(arr[i]);
     }
-    
     free(line);
 
   }
-
   return 1;
 }
