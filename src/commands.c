@@ -10,8 +10,8 @@
 #include <fcntl.h>
 
 #include "ed.h"
-#include "node.h"
 #include "commands.h"
+#include "node.h"
 
 int most_recent_ERR;
 
@@ -28,6 +28,10 @@ static const char *error_messages[ERR_COUNT] = {
     "hm3"
 };
 
+void error_msg(){
+    printf("?\n");
+}
+
 void command_E(char * name){
 
     // set ed_filename
@@ -35,7 +39,7 @@ void command_E(char * name){
         strcpy(ed_filename,name);
     }
     else{
-        printf("?\n");
+        error_msg();
         return;
     }
 

@@ -55,13 +55,13 @@ int read_command(char * line, char * arr[MAX_TOKENS], int count){
         sec_num = get_num(line, &index);
       }
       else{
-        printf("?\n");
-        return;
+        error_msg();
+        return 1;
       }
     }
     else{
-      printf("?\n");
-      return;
+      error_msg();
+      return 1;
     }
   }
 
@@ -85,7 +85,7 @@ int read_command(char * line, char * arr[MAX_TOKENS], int count){
   }
 
   else if(strcmp(line,"q")==0){
-    exit(0);
+    command_q();
   }
 
   else if(strcmp(line,"h")==0){
@@ -114,7 +114,7 @@ int read_command(char * line, char * arr[MAX_TOKENS], int count){
   // invalid commands:
 
   else{
-    printf("?\n");
+    error_msg();
   }
 
 }
@@ -129,7 +129,7 @@ int main(int argc, char *argv[]){
   while (1){
     char * line = readline("");
     if(strcmp(line,"")==0){
-      printf("?\n");
+      error_msg();
       continue;
     }
     // collect tokens from line 

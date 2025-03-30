@@ -18,6 +18,7 @@ extern char ed_filename[MAX_FILENAME_LENGTH];
 
 // COMMANDS_H functions:
 
+void error_msg();
 void command_E(char * name);
 void command_q();
 void command_h();
