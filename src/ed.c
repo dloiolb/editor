@@ -65,6 +65,8 @@ int read_command(char * line, char * arr[MAX_TOKENS], int count){
     }
   }
 
+  printf("%d, %d\n", first_num, sec_num);
+
   if(line[index]=='\0'){
     if (sec_num >= 0){
       ed_buffer.current = nth_node(sec_num);
@@ -107,7 +109,8 @@ int read_command(char * line, char * arr[MAX_TOKENS], int count){
   // commands that take numbers:
 
   else if(line[index] == 'a'){
-    command_a(first_num);
+    if (sec_num >= 0) command_a(sec_num);
+    else command_a(first_num);
   }
 
   // invalid commands:

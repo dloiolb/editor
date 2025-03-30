@@ -29,7 +29,7 @@ static const char *error_messages[ERR_COUNT] = {
 };
 
 int command_a(int n){
-    ed_buffer.current = nth_node(n);
+    if (n>=0) ed_buffer.current = nth_node(n);
     Node * temp = ed_buffer.current;
     int cnt = 0;
     while(1){
